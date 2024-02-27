@@ -98,7 +98,20 @@ Example:
   - \d{3}(?:-|\.)?\d{2} will match things with 3 digits and then 2 more after INCLUDING '-' OR '.' 
   - MEANING it could match things like 12345, 123-45, OR 123.45 
 ### Bracket Expressions
+Bracket Expressions have been seen above in a few examples when explaining other regular expressions. They are essentially used to isolate something specific in a string of rejex query. Bracket Expressions can also be referred to as 'Character Expressions'. 
 
+* '[ ]' This is a 'Bracket Expression'. It is used to specify what you're looking for OR to include some sort of rule in your rejex. I will cite the phone number example i had used above in an earlier example: 
+  - Example: '\d{3}[-.]\d{3}[-.]\d{4}' is specifying 999-999-9999 OR 999.743-1234 OR 555.555.5555.
+  - In this example, the section '[-,]' is being used to say that we will match digit sequences that have EITHER a '-' or a '.' 
+
+  - Example 2: It can be used to search for specific sets like vowels or digits:
+     - [aeiou] will search for any thing with 'a', 'e', 'i', 'o', 'u' 
+     - [0-9] will search for anything with numbers 0 through 9. '1', '2', '3' etc. 
+
+* '[^...]' is called a 'Negated Bracket Expression'. This is very similar to 'Bracket Expressions' BUT IS THE OPPOSITE. Instead of gathering things specified, it is going to gather things that don't match what's in the brackets - essentially excluding what is specified in the brackets. 
+  - Example: 
+     - [^aeiou] will search for all letters that ARE NOT vowels - i.e. consonants 
+     - [^0-9] will search for characters that ARE NOT digits 
 
 ### Character Classes
 
