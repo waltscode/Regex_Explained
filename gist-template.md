@@ -1,10 +1,30 @@
-# Title (replace with your title)
+# Introduction To Regular Expressions
 
-Introductory paragraph (replace this with your text)
+Welcome to an Introduction To Regular Expressions! Regular Expressions or 'Rejex' are expressions used to allow computers to check for specific criteria in a string. This document is a great tool for learning everything you need to know about them! From breaking down an email snippet to the many different elements in rejex and the various practical uses! Enjoy!
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+I will be briefly summarizing a snippet of rejex code that is matching acceptable email requirements. 
+ ### Matching an Email:
+  `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+This snippet breaks down as follows:
+* '^': Asserts the start of the string, indicating that the regex should match from the beginning.
+
+* '([a-z0-9_\.-]+)': Captures the username part of the email. It is checking for lowercase letters, numbers, underscores, dots, and hyphens. The + ensures that there is AT LEAST one character.
+
+* '@': Matches the "@" symbol, separating the username and the domain in an email address (test@gmail.com).
+
+* '([\da-z\.-]+)': Captures the domain name. This is checking for lowercase letters, numbers, dots, and hyphens. The \d looks for digits (0-9). The + ensures that there is AT LEAST one character.
+
+* '\.': Matches the dot (.) that separates the domain from the top-level domain. The 'slash' makes the '.' a 'literal' character - searching for a period specifically.
+
+* '([a-z\.]{2,6})': Captures the top-level domain, allowing lowercase letters and dots. The {2,6} says that the top-level domain should be between 2 and 6 characters in length. checking for emails like (test@test.edu) OR (test@gmail.com) OR (test@co.uk)
+- checks that the top level domain consists of 2 to 6 characters, whether they are letters, dots, or a combination of both.
+
+* '$': Indicates the end of the string, saying that the regex should match until the end.
+
+## Further Elaboration
 
 The following was copied from the MDN webdocs website URL https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions 
 ```
@@ -191,7 +211,17 @@ Flags in regular expressions are modifiers that control how the matching process
 - For example, (?i)pattern makes the pattern case-insensitive.
 
 ### Character Escapes
+Character escapes in regular expressions are used to represent characters that would OTHERWISE be interpreted as 'metacharacters'. They allow you to match 'literal characters' that have special meanings in regex syntax. I have explained this earlier in the character classes section. For demonstration purposes i will place it again here:
+```
+*  '\' Indicates that the following character should be treated specially, or "escaped". It essentially isolates what follows it and allows things to become 'literal'. Example would be the '-' which can be 'a-z' but if you wanted 'a','-', and 'z' it would be '[a\-\z]'.
+
+*  Escaping Metacharacters: Characters like ^, $, |, (), {}, [ ], and \ have special meanings in regex. To match them literally, you use the escape character. (seen above)
+```
+
+In simple terms, these symbols (^, $, |, (), {}, [ ], and \) all perform specific actions in regex. In order to circumvent that and select them as 'literals' we need to use a '\'.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Greetings! My name is John Walters and I am a beginner full-stack developer. I have learned many new skills over the last year and this is just a brief window into the various topics I have began to learn about. It was a lot of fun to learn about regular expressions and I can see the practical use for understanding this concept.  I can already envision its practical applications, particularly in scenarios like fine-tuning registration forms to meet specific criteria for new user creation. Join me as I navigate the world of web development, learning and growing along the way!
+
+Here is a link to my GitHub URL https://github.com/waltscode 
