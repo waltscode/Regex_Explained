@@ -97,6 +97,7 @@ if (match) {
 Example:
   - \d{3}(?:-|\.)?\d{2} will match things with 3 digits and then 2 more after INCLUDING '-' OR '.' 
   - MEANING it could match things like 12345, 123-45, OR 123.45 
+
 ### Bracket Expressions
 Bracket Expressions have been seen above in a few examples when explaining other regular expressions. They are essentially used to isolate something specific in a string of rejex query. Bracket Expressions can also be referred to as 'Character Expressions'. 
 
@@ -114,6 +115,22 @@ Bracket Expressions have been seen above in a few examples when explaining other
      - [^0-9] will search for characters that ARE NOT digits 
 
 ### Character Classes
+Character classes are special shorthand codes that represent specific sets of characters. There are a lot of different character classes, I will be quickly summarizing them below:
+
+* '\d' Represents any digit (0-9).
+* '\D' Represents any non-digit character.
+* '\w' Represents any word character (alphanumeric character plus underscore).
+* '\W' Represents any non-word character.
+* '\s' Represents any whitespace character (spaces, tabs, line breaks).
+* '\S' Represents any non-whitespace character.
+* '\t' Matches a horizontal tab.
+* '\r' Matches a carriage return.
+* '\n' Matches a linefeed.
+* '\v' Matches a vertical tab.
+* '\f' Matches a form-feed.
+* '\0' Matches a NUL character. Do not follow this with another digit.
+* '\' Indicates that the following character should be treated specially, or "escaped". It essentially isolates what follows it and allows things to become 'literal'. Example would be the '-' which can be 'a-z' but if you wanted 'a','-', and 'z' it would be '[a\-\z]'.
+* '.' Can be used to match anything preceding a specific character. An example would be '.y' which will match things like 'hey', 'may', 'hockey' BUT WILL NOT MATCH 'yes' because there is nothing before the 'y'. 
 
 ### The OR Operator
 
