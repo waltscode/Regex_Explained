@@ -6,6 +6,21 @@ Introductory paragraph (replace this with your text)
 
 Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
 
+The following was copied from the MDN webdocs website URL https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions 
+```
+Using regular expressions in JavaScript
+Regular expressions are used with the RegExp methods test() and exec() and with the String methods match(), matchAll(), replace(), replaceAll(), search(), and split().
+
+Method	Description
+exec()	Executes a search for a match in a string. It returns an array of information or null on a mismatch.
+test()	Tests for a match in a string. It returns true or false.
+match()	Returns an array containing all of the matches, including capturing groups, or null if no match is found.
+matchAll()	Returns an iterator containing all of the matches, including capturing groups.
+search()	Tests for a match in a string. It returns the index of the match, or -1 if the search fails.
+replace()	Executes a search for a match in a string, and replaces the matched substring with a replacement substring.
+replaceAll()	Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.
+split()	Uses a regular expression or a fixed string to break a string into an array of substrings.
+```
 ## Table of Contents
 
 - [Anchors](#anchors)
@@ -133,6 +148,15 @@ Character classes are special shorthand codes that represent specific sets of ch
 * '.' Can be used to match anything preceding a specific character. An example would be '.y' which will match things like 'hey', 'may', 'hockey' BUT WILL NOT MATCH 'yes' because there is nothing before the 'y'. 
 
 ### The OR Operator
+* '|' Is called the 'OR operator'. It allows for the matching of multiple alternatives within a pattern. It functions as a logical OR, enabling the regex engine to match any of the alternatives specified. 
+
+- The OR operator is used to provide alternatives for matching. For example, cat|dog will match either "cat" or "dog."
+
+Example:
+
+* grape|apple: Matches either "grape" or "apple."
+* sun(day|set): Matches "sunday" or "sunset."
+* Precedence: The OR operator has a lower precedence than grouping constructs. Parentheses ( ) can be used to control the scope of the OR operator.
 
 ### Flags
 
