@@ -8,7 +8,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 The following was copied from the MDN webdocs website URL https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions 
 ```
-Using regular expressions in JavaScript
+"Using regular expressions in JavaScript
 Regular expressions are used with the RegExp methods test() and exec() and with the String methods match(), matchAll(), replace(), replaceAll(), search(), and split().
 
 Method	Description
@@ -19,7 +19,7 @@ matchAll()	Returns an iterator containing all of the matches, including capturin
 search()	Tests for a match in a string. It returns the index of the match, or -1 if the search fails.
 replace()	Executes a search for a match in a string, and replaces the matched substring with a replacement substring.
 replaceAll()	Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.
-split()	Uses a regular expression or a fixed string to break a string into an array of substrings.
+split()	Uses a regular expression or a fixed string to break a string into an array of substrings."
 ```
 ## Table of Contents
 
@@ -159,6 +159,36 @@ Example:
 * Precedence: The OR operator has a lower precedence than grouping constructs. Parentheses ( ) can be used to control the scope of the OR operator.
 
 ### Flags
+Flags in regular expressions are modifiers that control how the matching process behaves. They are added after the closing delimiter of the regular expression and affect various aspects of pattern matching. Here's a summary of common flags:
+
+* 'd' is used to Generate indices for substring matches.
+- Corresponding Property: hasIndices
+
+* 'i' is called a 'Case-Insensitive Flag': Ignores the case of letters, making the pattern match regardless of letter case. 
+- For example: /abc/i would match "ABC" or "aBc."
+- Corresponding Property: ignoreCase
+
+* 'g' is called a 'Global Flag': Performs a global search, finding all matches rather than stopping after the first match.
+- Corresponding Property: 	global
+
+* 'm' is called a 'Multiline Flag': Changes the behavior of ^ and $ anchors to match the start or end of each line within a multiline string.
+- Corresponding Property:	multiline
+
+* 's' is called a 'Dot-All Flag': Alters the behavior of the dot (.) to match any character, including newline characters.
+- Corresponding Property: 	dotAll
+
+* 'u' is called a 'Unicode Flag': Treats the pattern and input as Unicode, enabling the use of Unicode escapes and making quantifiers like \d work with Unicode characters.
+- Corresponding Property:	unicode
+
+* 'y' is called a 'Sticky Flag': Requires the match to start at the current position of the search string.
+- Corresponding Property: 	sticky
+
+* 'flags' are called 'Multiple Flags': Some regex engines allow combining multiple flags. 
+- For example: /pattern/gi would enable both case-insensitive and global matching.
+
+
+* '(?flag)' are called 'Inline Flags': Flags can also be applied inline within the pattern using (?flag) syntax. 
+- For example, (?i)pattern makes the pattern case-insensitive.
 
 ### Character Escapes
 
