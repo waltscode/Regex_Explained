@@ -38,6 +38,11 @@ Example:
 
  '\bthe\b' will work for 'the' and EXCLUDE something like 'thermal'.
 
+* '\B' This is a 'Non-Word Boundary'. It is used to define a sequence of characters NOT LIMITED TO A WORD. Essentially the opposite of how '\b' 'Word Boundaries' work.
+
+Example:
+
+  '\Bthe\B' will work for a word like 'thermal' but will EXCLUDE the word 'the'. 
 
 ### Quantifiers
 Quantifiers are used to quantify how many of an occurrence of characters or sequences we are looking for in the expression. 
@@ -63,8 +68,37 @@ Example: 'za{2,5}' means it will look for matches that have 'zaza', 'zazaza', 'z
 BASICALLY anything that matches 'za' 2 to 5 times in sequence. 
 
 ### Grouping Constructs
+Grouping constructs are used to create subexpressions WITHIN a larger expression. These subexpressions can be treated as a single unit, allowing for quantifiers (as seen above) or alternation to be applied to the entire group.
 
+* '()' These are called 'Parentheses'. Creates a capturing group. It allows you to select MULTIPLE CHARACTERS as a single unit.
+Example: 
+  - (ab)+ matches 'ab', 'abab', 'ababab', and so on. The parentheses group 'ab' as a unit, and the + quantifier applies to the entire group.
+
+  - (x|y) matches either 'x' or 'y'. The parentheses group the alternation construct, and the | (OR operator) applies to the entire group.
+
+* '(?<name>...)' is a 'Named Capturing Group'.It creates a named capturing group, allowing you to refer to the matched content by a specified name. Basically allowing you to put IDs on to specific groups or sequences of characters. 
+Example:
+  - (?<day>\d{2})-(?<month>\d{2})-(?<year>\d{4}) creating a sequence of 02-05-1995.
+  - Here is a snippet of javascript to further illustrate this concept:
+
+```
+const pattern = /(?<day>\d{2})-(?<month>\d{2})-(?<year>\d{4})/;
+const text = '02-05-1995';
+
+const match = pattern.exec(text);
+
+if (match) {
+  // Access the value of the 'month' named capturing group
+  const monthValue = match.groups.month;
+  console.log(`Month: ${monthValue}`);
+}
+```
+* '(?:...)' is called a 'Non-Capturing Group'. It essentially searches for groups but allows for more 'wiggle-room' and is capable of gathering things with similar attributes.
+Example:
+  - \d{3}(?:-|\.)?\d{2} will match things with 3 digits and then 2 more after INCLUDING '-' OR '.' 
+  - MEANING it could match things like 12345, 123-45, OR 123.45 
 ### Bracket Expressions
+
 
 ### Character Classes
 
